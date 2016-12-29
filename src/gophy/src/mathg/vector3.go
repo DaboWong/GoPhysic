@@ -1,4 +1,4 @@
-package core
+package mathg
 
 import (
 	"math"
@@ -79,8 +79,7 @@ func (self *Vector3) Dot(rhs *Vector3) float32 {
 }
 
 func (self *Vector3) Length() float32 {
-	mag := self.Magitude()
-	return (float32)(math.Sqrt((float64)(mag)))
+	return (float32)(math.Sqrt((float64)(self.Magitude())))
 }
 
 func (self *Vector3) Magitude() float32 {

@@ -1,19 +1,45 @@
 package main
 
 import (
-	"gophy/src/core"
+	//"gophy/src/core"
+	"gophy/src/mathg"
 	"log"
 	"math"
+	"reflect"
 )
 
+type Comp struct {
+	Key   int32
+	Value string
+}
+
 func main() {
-	v := core.Vector3FromXYZ(0.5, 4, 1)
+
+	log.Println("testRelfect")
+	testRelfect()
+}
+
+func testRelfect() {
+	cp := &Comp{
+		Key:   1,
+		Value: "none",
+	}
+	var inter interface{} = *cp
+	ty := reflect.TypeOf(inter)
+
+	log.Println(ty.Name())
+	log.Println(ty.Kind().String())
+}
+
+func testVector() {
+	//unit test
+	v := mathg.Vector3FromXYZ(0.5, 4, 1)
 
 	log.Printf("%v, %v, %v", v.X, v.Y, v.Z)
 
 	//add
 
-	v2 := core.Vector3FromXYZ(10, 10.5, 20)
+	v2 := mathg.Vector3FromXYZ(10, 10.5, 20)
 
 	res := v.Add(v2)
 	log.Printf("%v, %v, %v", res.X, res.Y, res.Z)
@@ -30,8 +56,8 @@ func main() {
 
 	log.Printf("%v, %v, %v", v.X, v.Y, v.Z)
 
-	vleft := core.Vector3FromXYZ(1, 0, 0)
-	vright := core.Vector3FromXYZ(0, -1, 0)
+	vleft := mathg.Vector3FromXYZ(1, 0, 0)
+	vright := mathg.Vector3FromXYZ(0, -1, 0)
 
 	dot := vleft.Dot(vright)
 
@@ -39,7 +65,7 @@ func main() {
 
 	log.Print(degree * 180 / math.Pi)
 
-	nor := core.Vector3FromXYZ(3, 4, 0)
+	nor := mathg.Vector3FromXYZ(3, 4, 0)
 
 	log.Print(nor.Magitude())
 	log.Print(nor.Length())

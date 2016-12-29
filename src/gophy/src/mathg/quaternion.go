@@ -1,4 +1,4 @@
-package core
+package mathg
 
 type Quaternion struct {
 	X float32

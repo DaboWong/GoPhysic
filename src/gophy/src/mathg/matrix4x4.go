@@ -1,4 +1,4 @@
-package core
+package mathg
 
 type Matrix4x4 struct {
 	m00, m01, m02, m03,
@@ -14,6 +14,13 @@ func CreateIndityMatrix4x4() *Matrix4x4 {
 		m10: 0, m11: 0, m12: 1, m13: 0,
 		m00: 0, m01: 0, m02: 0, m03: 1,
 	}
+}
+
+var IdentityMatrix4x4 *Matrix4x4 = &Matrix4x4{
+	0, 0, 0, 1,
+	0, 0, 1, 0,
+	0, 1, 0, 0,
+	1, 0, 0, 0,
 }
 
 //TODO
