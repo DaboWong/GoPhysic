@@ -21,24 +21,24 @@ func NewGameObject() *GameObject {
 }
 
 func (self *GameObject) AddComponent(component Component) {
-	_, ok := component.(*Transform)
-	if !ok {
+
+	//you cann't add a rigidbody or transform to gameobject!
+	switch (component.(type)); {
+	case Rigidbody, Transform:
 		return
 	}
-	_, ok = component.(*Rigidbody)
-	if !ok {
-		return
-	}
+
 	self.components[component] = component
 }
 
 func (self *GameObject) RemoveComponent(component Component) {
-	if component.(*Transform) != nil {
+
+	//alson you can't remove the rigidbody or transform
+	switch (component.(type)); {
+	case Rigidbody, Transform:
 		return
 	}
-	if component.(*Rigidbody) != nil {
-		return
-	}
+
 	delete(self.components, component)
 }
 
