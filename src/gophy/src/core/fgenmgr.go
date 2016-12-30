@@ -4,7 +4,7 @@ type ForceGeneratorManager struct {
 	forceElementMap map[IForceGenerator]IForceGenerator
 }
 
-func NewForceGenManager() *ForceGeneratorManager {
+func newForceGenManager() *ForceGeneratorManager {
 	return &ForceGeneratorManager{
 		forceElementMap: make(map[IForceGenerator]IForceGenerator),
 	}

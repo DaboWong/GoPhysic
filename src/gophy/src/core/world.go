@@ -17,13 +17,13 @@ type World struct {
 
 func NewWorld() *World {
 	return &World{
-		forceGenMgr: NewForceGenManager(),
+		forceGenMgr: newForceGenManager(),
 		TimeSetting: TimeSetting{
 			UnScaledDeltaTime: (int64)(time.Second) / 20,
 			TimeScale:         1,
 		},
-		finChan:     make(chan bool, 1),
 		GameObjects: make(map[*GameObject]*GameObject),
+		finChan:     make(chan bool, 1),
 	}
 }
 
@@ -51,7 +51,7 @@ func (self *World) Run() {
 	}
 }
 
-//fin
+//send to finish the world
 func (self *World) Finish() {
 	if self.quit {
 		log.Println("duplicated quit world.")
