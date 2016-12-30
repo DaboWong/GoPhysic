@@ -4,8 +4,10 @@ type ForceGeneratorManager struct {
 	forceElementMap map[IForceGenerator]IForceGenerator
 }
 
-var FgenManager *ForceGeneratorManager = &ForceGeneratorManager{
-	forceElementMap: make(map[IForceGenerator]IForceGenerator),
+func NewForceGenManager() *ForceGeneratorManager {
+	return &ForceGeneratorManager{
+		forceElementMap: make(map[IForceGenerator]IForceGenerator),
+	}
 }
 
 func (self *ForceGeneratorManager) Add(fgen IForceGenerator) bool {

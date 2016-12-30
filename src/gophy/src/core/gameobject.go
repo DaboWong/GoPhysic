@@ -11,20 +11,19 @@ type GameObject struct {
 	Rigidbody  *Rigidbody
 }
 
-func NewGameObject() *GameObject {
+func newGameObject() *GameObject {
 	gameObject := &GameObject{}
-
-	gameObject.AddComponent(NewTransform())
-	gameObject.AddComponent(NewRigidbody())
+	gameObject.Name = "GameObject"
+	gameObject.AddComponent(newTransform(gameObject))
+	gameObject.AddComponent(newRigidbody(gameObject))
 
 	return gameObject
 }
 
 func (self *GameObject) AddComponent(component Component) {
-
-	//you cann't add a rigidbody or transform to gameobject!
-	switch (component.(type)); {
-	case Rigidbody, Transform:
+	//you can't add a rigidbody or transform to a gameobject!
+	switch component.(type) {
+	case *Rigidbody, *Transform:
 		return
 	}
 
@@ -33,9 +32,9 @@ func (self *GameObject) AddComponent(component Component) {
 
 func (self *GameObject) RemoveComponent(component Component) {
 
-	//alson you can't remove the rigidbody or transform
-	switch (component.(type)); {
-	case Rigidbody, Transform:
+	//also you can't remove rigidbody or transform from a game object
+	switch component.(type) {
+	case *Rigidbody, *Transform:
 		return
 	}
 

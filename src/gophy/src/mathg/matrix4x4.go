@@ -16,16 +16,18 @@ func CreateIndityMatrix4x4() *Matrix4x4 {
 	}
 }
 
-var IdentityMatrix4x4 *Matrix4x4 = &Matrix4x4{
-	0, 0, 0, 1,
-	0, 0, 1, 0,
-	0, 1, 0, 0,
-	1, 0, 0, 0,
-}
+var (
+	IdentityMatrix4x4 Matrix4x4 = Matrix4x4{
+		0, 0, 0, 1,
+		0, 0, 1, 0,
+		0, 1, 0, 0,
+		1, 0, 0, 0,
+	}
+)
 
 //TODO
-func (self *Matrix4x4) Mul(other *Matrix4x4) *Matrix4x4 {
-	return nil
+func (self *Matrix4x4) Mul(other Matrix4x4) Matrix4x4 {
+	return IdentityMatrix4x4
 }
 
 //TODO

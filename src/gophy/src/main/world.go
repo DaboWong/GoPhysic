@@ -1,7 +1,7 @@
 package main
 
 import (
-	//"gophy/src/core"
+	"gophy/src/core"
 	"gophy/src/mathg"
 	"log"
 	"math"
@@ -15,8 +15,11 @@ type Comp struct {
 
 func main() {
 
-	log.Println("testRelfect")
-	testRelfect()
+	//log.Println("testRelfect")
+	//testRelfect()
+
+	log.Println("test world")
+	testWorld()
 }
 
 func testRelfect() {
@@ -29,6 +32,15 @@ func testRelfect() {
 
 	log.Println(ty.Name())
 	log.Println(ty.Kind().String())
+}
+
+func testWorld() {
+	world := core.NewWorld()
+
+	world.Startup()
+
+	world.NewGameObject()
+	world.Run()
 }
 
 func testVector() {

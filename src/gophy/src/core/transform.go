@@ -5,16 +5,19 @@ import (
 )
 
 type Transform struct {
-	Position     *mathg.Vector3
-	Rotation     *mathg.Quaternion
-	LocalToWorld *mathg.Matrix4x4
-	WorldToLocal *mathg.Matrix4x4
-	Parent       *Transform
 	GameObject   *GameObject
+	Position     mathg.Vector3
+	Rotation     mathg.Quaternion
+	LocalToWorld mathg.Matrix4x4
+	WorldToLocal mathg.Matrix4x4
 }
 
-func NewTransform() *Transform {
-	return &Transform{}
+func newTransform(gameObject *GameObject) *Transform {
+	return &Transform{
+		GameObject: gameObject,
+		Position:   mathg.Vector3_Zero,
+		Rotation:   mathg.Quaternion_Identity,
+	}
 }
 
 func (self *Transform) Awake()                        {}
