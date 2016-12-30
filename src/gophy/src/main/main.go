@@ -20,6 +20,11 @@ func main() {
 
 	log.Println("test world")
 	testWorld()
+
+	//test float
+	//var f1 float32 = 0.000001234
+	//var f2 float32 = 0.0000012341
+	//log.Println(f1 == f2)
 }
 
 func testRelfect() {
@@ -79,7 +84,7 @@ func testVector() {
 
 	nor := mathg.Vector3FromXYZ(3, 4, 0)
 
-	log.Print(nor.Magitude())
-	log.Print(nor.Length())
+	log.Print(nor.Magnitude() == 25)
+	log.Print(nor.SqrtMagnitude() == 5)
 	log.Print(nor.Normalize())
 }

@@ -7,4 +7,5 @@ type Component interface {
 	FixedUpdate(deltaTime float32)
 	OnDisable()
 	OnDestory()
+	GetObject() *Object
 }

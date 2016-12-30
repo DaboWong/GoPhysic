@@ -5,11 +5,13 @@ import (
 )
 
 type Transform struct {
+	*Object
 	GameObject   *GameObject
 	Position     mathg.Vector3
 	Rotation     mathg.Quaternion
 	LocalToWorld mathg.Matrix4x4
 	WorldToLocal mathg.Matrix4x4
+	Parent       *Transform
 }
 
 func newTransform(gameObject *GameObject) *Transform {
@@ -17,12 +19,22 @@ func newTransform(gameObject *GameObject) *Transform {
 		GameObject: gameObject,
 		Position:   mathg.Vector3_Zero,
 		Rotation:   mathg.Quaternion_Identity,
+		Object:     &Object{},
 	}
 }
 
-func (self *Transform) Awake()                        {}
-func (self *Transform) OnEnable()                     {}
-func (self *Transform) Start()                        {}
+func (self *Transform) setStart() {
+	self.started = true
+}
+
+//compoenent interface implements
+func (self *Transform) Awake()    {}
+func (self *Transform) OnEnable() {}
+func (self *Transform) Start() {
+}
 func (self *Transform) FixedUpdate(deltaTime float32) {}
 func (self *Transform) OnDisable()                    {}
 func (self *Transform) OnDestory()                    {}
+func (self *Transform) GetObject() *Object {
+	return self.Object
+}

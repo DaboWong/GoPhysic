@@ -75,16 +75,21 @@ func (self *World) update(deltaTime float32) {
 	if self.forceGenMgr != nil {
 		self.forceGenMgr.Update(deltaTime)
 	}
+
+	//update all gameobject
+	for _, v := range self.GameObjects {
+		if v != nil {
+			v.fixedUpdate(deltaTime)
+		}
+	}
 }
 
 //add gameobject to gameobject map.
 func (self *World) addGameObject(gameObject *GameObject) {
-
 	//object already added
 	if _, ok := self.GameObjects[gameObject]; ok {
 		return
 	}
-
 	self.GameObjects[gameObject] = gameObject
 }
 

@@ -51,7 +51,7 @@ func (self *Vector3) Minus(rhs Vector3) Vector3 {
 }
 
 func (self *Vector3) Normalized() Vector3 {
-	length := self.Length()
+	length := self.SqrtMagnitude()
 	return Vector3{
 		X: self.X / length,
 		Y: self.Y / length,
@@ -60,7 +60,7 @@ func (self *Vector3) Normalized() Vector3 {
 }
 
 func (self *Vector3) Normalize() Vector3 {
-	length := self.Length()
+	length := self.SqrtMagnitude()
 	self.X /= length
 	self.Y /= length
 	self.Z /= length
@@ -86,14 +86,13 @@ func (self *Vector3) Dot(rhs Vector3) float32 {
 	return self.X*rhs.X + self.Y*rhs.Y + self.Z*rhs.Z
 }
 
-func (self *Vector3) Length() float32 {
-	return (float32)(math.Sqrt((float64)(self.Magitude())))
+func (self *Vector3) SqrtMagnitude() float32 {
+	return (float32)(math.Sqrt((float64)(self.Magnitude())))
 }
 
-func (self *Vector3) Magitude() float32 {
+func (self *Vector3) Magnitude() float32 {
 	return self.X*self.X + self.Y*self.Y + self.Z*self.Z
 }
-
 func (self *Vector3) Cross(rhs Vector3) Vector3 {
 	return Vector3{
 		X: self.X*rhs.X + self.X*rhs.Y + self.X*rhs.Z,
@@ -101,8 +100,8 @@ func (self *Vector3) Cross(rhs Vector3) Vector3 {
 		Z: self.Z*rhs.Z + self.Z*rhs.Y + self.Z*rhs.Z,
 	}
 }
-
-//TODO
-func (self *Vector3) Equals(rhs *Vector3) bool {
-	return false
+func (self *Vector3) Equals(rhs Vector3) bool {
+	return self.X == rhs.X &&
+		self.Y == rhs.Y &&
+		self.Z == rhs.Z
 }
