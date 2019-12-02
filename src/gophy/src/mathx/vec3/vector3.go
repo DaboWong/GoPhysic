@@ -1,7 +1,8 @@
-package mathg
+package vec3
 
 import (
 	"math"
+	"reflect"
 )
 
 type Vector3 struct {
@@ -10,13 +11,7 @@ type Vector3 struct {
 	Z float32
 }
 
-var (
-	Vector3_Zero = Vector3{
-		X: 0,
-		Y: 0,
-		Z: 0,
-	}
-)
+
 
 func Vector3FromXYZ(x, y, z float32) Vector3 {
 	return Vector3{
@@ -39,6 +34,14 @@ func (self *Vector3) Add(rhs Vector3) Vector3 {
 		X: self.X + rhs.X,
 		Y: self.Y + rhs.Y,
 		Z: self.Z + rhs.Z,
+	}
+}
+
+func (self *Vector3) Sub(rhs Vector3) Vector3 {
+	return Vector3{
+		X: self.X - rhs.X,
+		Y: self.Y - rhs.Y,
+		Z: self.Z - rhs.Z,
 	}
 }
 
@@ -93,6 +96,7 @@ func (self *Vector3) SqrtMagnitude() float32 {
 func (self *Vector3) Magnitude() float32 {
 	return self.X*self.X + self.Y*self.Y + self.Z*self.Z
 }
+
 func (self *Vector3) Cross(rhs Vector3) Vector3 {
 	return Vector3{
 		X: self.X*rhs.X + self.X*rhs.Y + self.X*rhs.Z,
@@ -101,7 +105,5 @@ func (self *Vector3) Cross(rhs Vector3) Vector3 {
 	}
 }
 func (self *Vector3) Equals(rhs Vector3) bool {
-	return self.X == rhs.X &&
-		self.Y == rhs.Y &&
-		self.Z == rhs.Z
+	return reflect.DeepEqual(self, &rhs)
 }

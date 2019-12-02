@@ -1,14 +1,14 @@
 package core
 
 import (
-	"gophy/src/mathg"
+
 )
 
 type Rigidbody struct {
 	*Object
 	GameObject      *GameObject
-	LinearVelocity  mathg.Vector3
-	AngularVelocity mathg.Vector3
+	LinearVelocity  vec3.Vector3
+	AngularVelocity vec3.Vector3
 	LinearDamp      float32
 	AngularDamp     float32
 	mass            float32

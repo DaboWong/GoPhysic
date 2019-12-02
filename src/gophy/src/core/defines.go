@@ -1,11 +1,11 @@
 package core
 
 import (
-	"gophy/src/mathg"
+	"gophy/src/mathx"
 )
 
 var (
-	Gravity = mathg.Vector3{
+	Gravity = mathx.Vector3{
 		X: 0,
 		Y: -9.81,
 		Z: 0,

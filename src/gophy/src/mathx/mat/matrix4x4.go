@@ -1,4 +1,4 @@
-package mathg
+package mat
 
 type Matrix4x4 struct {
 	m00, m01, m02, m03,
@@ -10,14 +10,15 @@ type Matrix4x4 struct {
 //identity matrix
 var (
 	IdentityMatrix4x4 Matrix4x4 = Matrix4x4{
-		0, 0, 0, 1,
-		0, 0, 1, 0,
-		0, 1, 0, 0,
 		1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, 1, 0,
+		0, 0, 0, 1,
 	}
 )
 
-func CreateIndityMatrix4x4() Matrix4x4 {
+// 创建一个新的矩阵
+func NewMatrix4x4() Matrix4x4 {
 	return IdentityMatrix4x4
 }
 
@@ -26,12 +27,13 @@ func (self *Matrix4x4) Mul(other Matrix4x4) Matrix4x4 {
 	return IdentityMatrix4x4
 }
 
-//TODO
+//TODO 求逆矩阵
 func (self *Matrix4x4) Inverse() Matrix4x4 {
 	return IdentityMatrix4x4
 }
 
-//TODO
+//TODO 求转置矩阵
 func (self *Matrix4x4) Transpose() Matrix4x4 {
 	return IdentityMatrix4x4
 }
+

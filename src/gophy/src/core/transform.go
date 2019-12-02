@@ -1,24 +1,24 @@
 package core
 
 import (
-	"gophy/src/mathg"
+	"gophy/src/mathx"
 )
 
 type Transform struct {
 	*Object
 	GameObject   *GameObject
-	Position     mathg.Vector3
-	Rotation     mathg.Quaternion
-	LocalToWorld mathg.Matrix4x4
-	WorldToLocal mathg.Matrix4x4
+	Position     vec3.Vector3
+	Rotation     quaternion.Quaternion
+	LocalToWorld mat.Matrix4x4
+	WorldToLocal mathx.Matrix4x4
 	Parent       *Transform
 }
 
 func newTransform(gameObject *GameObject) *Transform {
 	return &Transform{
 		GameObject: gameObject,
-		Position:   mathg.Vector3_Zero,
-		Rotation:   mathg.Quaternion_Identity,
+		Position:   mathx.Vector3_Zero,
+		Rotation:   mathx.Quaternion_Identity,
 		Object:     &Object{},
 	}
 }

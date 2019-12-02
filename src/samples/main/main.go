@@ -1,8 +1,6 @@
 package main
 
 import (
-	"gophy/src/core"
-	"gophy/src/mathg"
 	"log"
 	"math"
 	"reflect"
