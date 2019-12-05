@@ -1,5 +1,10 @@
 package mat
 
+import (
+	"gophy/src/mathx/quat"
+	"gophy/src/mathx/vec3"
+)
+
 type Matrix4x4 struct {
 	m00, m01, m02, m03,
 	m10, m11, m12, m13,
@@ -37,3 +42,22 @@ func (self *Matrix4x4) Transpose() Matrix4x4 {
 	return IdentityMatrix4x4
 }
 
+//TODO 位移旋转缩放
+func (self *Matrix4x4) MakeTRS(translate vec3.Vector3, rotation quat.Quaternion, scale vec3.Vector3) {
+
+}
+
+//TODO 位移
+func (self *Matrix4x4) Translate(translate vec3.Vector3) {
+
+}
+
+//TOOD 旋转
+func (self *Matrix4x4) Rotate(rotation quat.Quaternion) {
+
+}
+
+//TODO 缩放
+func (self *Matrix4x4) Scale(scal vec3.Vector3) {
+
+}

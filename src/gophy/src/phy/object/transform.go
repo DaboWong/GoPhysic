@@ -22,3 +22,13 @@ type Transform struct {
 	//local to parant matrix
 	localToParentMatrix mat.Matrix4x4
 }
+
+//TODO: world position of the object
+func (self*Transform) Position()  vec3.Vector3{
+	return self.localPosition
+}
+
+//TODO: set world position of the object
+func (self*Transform) SetPosition( vector3 vec3.Vector3 )  vec3.Vector3{
+	self.localPosition = vector3
+}

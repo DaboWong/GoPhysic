@@ -1,5 +1,10 @@
 package mat
 
+import (
+	"gophy/src/mathx/quat"
+	"gophy/src/mathx/vec3"
+)
+
 type Matrix3x3 struct {
 	m00, m01, m02,
 	m10, m11, m12,
@@ -20,7 +25,8 @@ func NewMatrix3x3() *Matrix3x3 {
 	}
 }
 
-func (self *Matrix3x3) MakeTRS(scale vec3.Vector3, rotate quaternion.Quaternion, scale vec3.Vector3) {
+func (self *Matrix3x3) MakeTRS(translate vec3.Vector3, rotate quat.Quaternion, scale vec3.Vector3) {
+
 
 }
 

@@ -56,3 +56,8 @@ func (self *Particle) World() world.World {
 func (self *Particle) IsUseGravity() bool {
 	return self.userGravity
 }
+
+//get the object's mass
+func (self*Particle) Mass() float32{
+	return self.mass
+}

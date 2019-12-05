@@ -2,7 +2,6 @@ package world
 
 import "gophy/src/phy/object"
 
-
 //world will contain all objects in some collections
 // context will contain object id
 
@@ -12,6 +11,8 @@ type World interface {
 	RangeObject(f func(obj object.Object) bool)
 	AddObject(object object.Object) object.Object
 	RemoveObject(id int32)
+	AddContextGroup(group ContextGroup)
+	AddContext(group string, ctx Context)
 }
 
 //world process progress:
@@ -25,3 +26,14 @@ type World interface {
 //4. solve collision
 
 //5. update all object position and rotation
+
+// struct
+
+// World -> 聚合  -> context
+// World -> 聚合 -> system
+/*
+foreach sys in system =>
+	for each group in context group
+		system.Do( goup or context )
+*/
+

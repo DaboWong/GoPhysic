@@ -25,13 +25,19 @@ type Context interface {
 	World() World
 }
 
-type ContextCollection interface {
+type ContextGroup interface {
 	//add context
 	AddContext(ctx Context)
 
 	//find context by name
 	Context(name string) Context
 
-	//rmeove context by name
+	//remove context by name
 	RemoveContext(name string)
+
+	//remove all context
+	RemoveAllContext()
+
+	//remove context by condition
+	RemoveContextBy(f func(ctx Context))
 }

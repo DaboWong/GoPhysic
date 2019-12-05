@@ -8,7 +8,6 @@ type WorldSetting struct {
 
 	//gravity
 	//DEFAULT = 0, -9.81, 0
-	gravity vec3.Vector3
-
+	Gravity vec3.Vector3
 }
 
