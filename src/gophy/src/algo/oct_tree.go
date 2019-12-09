@@ -1,23 +1,41 @@
 package algo
 
-import "gophy/src/phy/collider"
+type nodeActionHandler func(tree Tree, node interface{})
 
-// axis align bounding box
-type AABBNode struct{
-	index int32
-	*collider.Cube
-}
-
-// AABB Oct tree
+// Oct Tree
 type OctTree struct {
 	// eight children nodes
-	nodes []*AABBNode
+	nodes []interface{}
+
+	// trigger when node add
+	addHandler nodeActionHandler
+
+	// trigger when node remove
+	removeHandler nodeActionHandler
 }
 
-func(self*OctTree) Walk( f func(tree Tree, pNode interface{}) bool) {
-	for _,v :=range self.nodes {
-		if !f (self, v ){
+// iterator all nodes
+
+func (self *OctTree) Walk(f func(tree Tree, pNode interface{}) bool) {
+	for _, v := range self.nodes {
+		if !f(self, v) {
 			break
 		}
+
+		// deep sort
+
+		if t, ok := v.(Tree); ok {
+			t.Walk(f)
+		}
 	}
+}
+
+// crud
+
+func (self *OctTree) AddNode(node interface{}) {
+
+}
+
+func (self *OctTree) RemoveNode() {
+
 }
