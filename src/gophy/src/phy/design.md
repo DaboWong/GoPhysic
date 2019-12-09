@@ -17,3 +17,5 @@
 4. Object 只是含有InstanceId 和world的指针
 5. Settings 世界内的设置
 6. Particle 质点物理的刚体
+7. collision 碰撞系统
+8. contact ？？

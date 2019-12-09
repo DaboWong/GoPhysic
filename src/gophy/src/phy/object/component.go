@@ -1,6 +1,6 @@
 package object
 
 type Component interface {
-	//pointer to basic object
+	// pointer to basic object
 	Entity() Entity
 }

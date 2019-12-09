@@ -1,7 +1,7 @@
 package object
 
 const (
-	//最大支持32个层级 大概
+	// 最大支持32个层级 大概
 	// max layer is 32 , maybe...
 	MaxLayer = 32
 )
@@ -11,7 +11,7 @@ type LayerManager struct {
 	stringLayer map[string]int32
 	intLayer    map[int32]string
 
-	//各个层级之间的碰撞关系 是否需要确定？
+	// 各个层级之间的碰撞关系 是否需要确定？
 	collisionSetting [][]bool
 }
 

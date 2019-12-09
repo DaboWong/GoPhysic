@@ -1,4 +1,4 @@
-package contact
+package sys
 
 import (
 	"gophy/src/mathx/vec3"
@@ -14,7 +14,7 @@ type FixedSystem struct {
 
 func (self *FixedSystem) Do(world world.World, ctx world.Context) {
 
-	//TODO: 遍历所有的对象， 找到他是否持有fixed joint 然后根据fixed joint 更新他们的位置
+	// TODO: 遍历所有的对象， 找到他是否持有fixed joint 然后根据fixed joint 更新他们的位置
 	world.RangeObject(func(obj object.Object) bool {
 
 		entity := obj.(object.Entity)
@@ -50,7 +50,7 @@ func (self *FixedSystem) do(from, other object.Entity, joint *conntact.FixedJoin
 	distance := vec3.Distance(tf.Position(), fixPoint)
 	if distance > joint.FixedLength {
 		var pa, pb *centroid.Particle
-		//control objects movement base on the distance between them
+		// control objects movement base on the distance between them
 		pa = from.Component(reflect.TypeOf(&centroid.Particle{})).(*centroid.Particle)
 		if other != nil {
 			pb = from.Component(reflect.TypeOf(&centroid.Particle{})).(*centroid.Particle)
@@ -61,18 +61,18 @@ func (self *FixedSystem) do(from, other object.Entity, joint *conntact.FixedJoin
 			totalMass += pb.Mass()
 		}
 
-		//offset distance
+		// offset distance
 		var offset = distance - joint.FixedLength
 
-		//make offset
+		// make offset
 		var dir = vec3.Direction(tf.Position(), fixPoint)
 
-		//only src will move
+		// only src will move
 		if to == nil {
 			offset := dir.Multi(offset)
 			tf.SetPosition( tf.Position().Add(offset) )
 		}else {
-			//TODO: calculate mv
+			//TODO: calculate movement
 		}
 	}
 }

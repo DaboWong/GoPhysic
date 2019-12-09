@@ -4,15 +4,15 @@ package force
 type Mode int32
 
 const (
-	//linear force
+	// linear force
 	Linear Mode = iota
 
-	//angular force
+	// angular force
 	Angular
 
-	//impluse force mode
+	// impluse force mode
 	Impulse
 
-	//explosion force mode
+	// explosion force mode
 	Explosion
 )

@@ -1,13 +1,13 @@
 package object
 
 type Layer struct {
-	//layer Name
+	// layer Name
 	layerName string
 
-	//entity
+	// entity
 	entity Entity
 
-	//int value
+	// int value
 	layerInt int32
 }
 

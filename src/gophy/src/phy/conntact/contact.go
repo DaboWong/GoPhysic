@@ -9,6 +9,6 @@ type Contact interface {
 	//to object
 	ObjectB() object.Object
 
-	//solve the object
+	// solve the object
 	Solve()
 }
