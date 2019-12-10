@@ -13,7 +13,7 @@ type FixedJoint struct {
 	Target object.Object
 
 	//length between two objects
-	FixedLength float32
+	FixedLength float64
 
 	// where to fix origin entity to other object
 	// when target is nil, fixpoint will default eqaul to vecto3.zero

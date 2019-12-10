@@ -5,23 +5,19 @@ import (
 )
 
 func TestVector3(t *testing.T) {
-	var a = Vector3{1, 0, 0 }
-	var b = Vector3{0, 1, 0}
+	var a = Vector3{1, 0, 0}
+	var b = Vector3{0, 2, 0}
 
-	var dot = a.Dot(b)
-	t.Log(dot)
+	t.Logf("cross: %v", Cross(a, b))
+	t.Logf("normalized: %v", b.Normalized())
+	b.Normalize()
+	t.Logf("normalize: %v", b)
+}
 
-	var angle = Angle(a, b)
-	t.Log(angle)
+func TestBenchMarkFunc(t *testing.T) {
+	r := testing.Benchmark(func(b *testing.B) {
 
-	var cross = a.Cross(b)
-	t.Logf("%+v", cross)
+	})
 
-	var ma = a.Multi(10)
-	t.Logf("%v", ma)
-
-	a.MultiBy(10)
-	t.Logf("%v", a)
-
-
+	t.Logf("%+v", r)
 }
